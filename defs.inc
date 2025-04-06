@@ -22,6 +22,11 @@
 .equ INT1addr, 0x0004
 .equ INT2addr, 0x0006
 
+;lcd settings
+.equ lcdOn, 0b00001110
+.equ lcdOf, 0b00001000
+.equ lcdFunction, 0b00110000
+.equ lcdClear, 0b00000110
 ;lcd symbols
 .equ S0, 00110000
 .equ S1, 00110001
