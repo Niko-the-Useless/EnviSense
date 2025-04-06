@@ -1,3 +1,10 @@
+delayMs to musi być podprogram a nie macro
+
+zajęte rejestry
+r16-pin setup
+r17-lcd num data
+r19 - delay
+r18 - delayMs time
 zajęte piny
 ---SPI-----
 pb4 -ss
@@ -9,9 +16,9 @@ pc1 -sda
 pc2 -scl
 ---lcd-----
 pa(wszystkie) -data
-pc7 -RS
-pc8 -R/W może być stałe 0
-pc9 -E
+pc7 -RS 0->ctl regs, 1->char data
+pc6 -R/W może być stałe 0
+pc5 -E
 ---ctr-----
 pd2 -int0 next
 pd3 -int1 back
