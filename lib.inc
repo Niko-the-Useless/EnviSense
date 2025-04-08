@@ -38,12 +38,19 @@ delayLoop:
 ;------------SPI-------------
 spiReceive:
 	cbi PORTB, 4
-	ldi r16, 0xFF
+	ldi r16, 0x00
 	out SPDR, r16
 	rcall spiWait
 	in r20, SPDR
+	sbi PORTB, 4
 	ret
 spiWait:
 	sbis SPRS, 7
 	rjmp spiWait
+	ret
+spiSend:
+	cbi PORTB, 4
+	out SPDR, r20
+	rcall spiWait
+	sbi PORTB, 4
 	ret
