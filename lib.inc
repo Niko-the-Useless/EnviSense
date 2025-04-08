@@ -5,15 +5,18 @@
 	rcall delayMs
 	cbi PORTC, 5
 .endm
-.macro lcdWrite, char
+.macro lcdWrite, data
+	ldi r21, \data
+	rcall lcdWriteFunc
+.endm
+lcdWriteFunc:
 	ldi r16, 0b00000001;RS1 RW0 E0
 	out PORTC, r16
-	ldi r16,\char
-	out PORTA, r16
+	out PORTA, r21
 	pulseE
 	ldi r18 ,1 
 	rcall delayMs
-.endm
+	ret
 .macro lcdSetting, data
 	ldi r16, 0b00000000;RS0 RW0 E0
 	out PORTC, r16

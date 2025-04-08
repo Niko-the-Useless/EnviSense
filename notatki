@@ -1,9 +1,10 @@
 zajęte rejestry
-r16-pin setup+misc/
-r17-lcd num data
+r16 - pin setup+misc/
+r17 - 
 r18 - delayMs time
 r19 - delay
 r20 - sensor Data
+r21 - lcd Data
 zajęte piny
 ---SPI-----
 pb4 -ss
