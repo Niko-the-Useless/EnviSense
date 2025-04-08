@@ -22,6 +22,12 @@
 .equ INT1addr, 0x0004
 .equ INT2addr, 0x0006
 
+;spi
+.equ SPDR, 0x0f
+.equ SPRS, 0x0e
+.equ SPCR, 0x0d
+.equ SPIF, 7
+
 ;lcd settings
 .equ lcdOn, 0b00001110
 .equ lcdOf, 0b00001000

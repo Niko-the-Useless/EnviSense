@@ -32,3 +32,15 @@ delayLoop:
     dec r18
     brne delayMs
     ret         
+;------------SPI-------------
+spiReceive:
+	cbi PORTB, 4
+	ldi r16, 0xFF
+	out SPDR, r16
+	rcall spiWait
+	in r20, SPDR
+	ret
+spiWait:
+	sbis SPRS, 7
+	rjmp spiWait
+	ret

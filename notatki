@@ -1,10 +1,9 @@
-delayMs to musi być podprogram a nie macro
-
 zajęte rejestry
-r16-pin setup
+r16-pin setup+misc/
 r17-lcd num data
-r19 - delay
 r18 - delayMs time
+r19 - delay
+r20 - sensor Data
 zajęte piny
 ---SPI-----
 pb4 -ss
