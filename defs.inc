@@ -32,6 +32,7 @@
 .equ SPIF, 7
 
 ;lcd settings
+.equ lcdInit, 0b0011000
 .equ lcdOn, 0b00001110
 .equ lcdOf, 0b00001000
 .equ lcdFunction, 0b00110000

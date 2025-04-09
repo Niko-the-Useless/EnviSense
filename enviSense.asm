@@ -15,10 +15,15 @@ setup:
 	ldi r16,0b00001101
 	out DDRB,r16;DDRB SS out, mosi out, miso in, sck out
 ;lcd_setup
-	lcdSetting lcdOn
-	lcdSetting lcdClear 
+	lcdSetting lcdInit
+	lcdSetting lcdInit
+	lcdSetting lcdInit
+	lcdSetting lcdInit
+
 	lcdSetting lcdFunction
 	lcdSetting lcdEntry
+	lcdSetting lcdOn
+	lcdSetting lcdClear 
 ;spi_setup
 	sbi PORTB, 4
 	ldi r16, 0b01010000

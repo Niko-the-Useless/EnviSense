@@ -1,6 +1,8 @@
+1Mhz
+
 zajęte rejestry
 r16 - pin setup+misc/
-r17 - 
+r17 - delay 
 r18 - delayMs time
 r19 - delay
 r20 - sensor Data

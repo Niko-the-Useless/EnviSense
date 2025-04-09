@@ -14,7 +14,7 @@ lcdWriteFunc:
 	out PORTC, r16
 	out PORTA, r21
 	pulseE
-	ldi r18 ,1 
+	ldi r18 ,1
 	rcall delayMs
 	ret
 .macro lcdSetting, data
@@ -28,13 +28,15 @@ lcdWriteFunc:
 .endm
 ;------------TIMING----------
 delayMs:
-    ldi r19, 250
-delayLoop:
-    dec r19
-    brne delayLoop
-    dec r18
-    brne delayMs
-    ret         
+	loop1: ldi r19, 4
+	loop2: ldi r20, 125
+	loop3: dec r20
+	brne loop3
+	dec r19
+	brne loop2
+	dec r18
+	brne loop1
+	ret
 ;------------SPI-------------
 spiReceive:
 	cbi PORTB, 4
