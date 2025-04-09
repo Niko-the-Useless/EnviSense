@@ -1,6 +1,11 @@
 .include "defs.inc"
 .include "lib.inc"
 setup:
+;stack setup
+	ldi r16, 0x08
+	out SPH, r16
+	ldi r16, 0x5F
+	out SPL, r16
 ;pin_setup
 	ldi r16,0b11111111
 	out DDRA,r16;DDRA output LCD

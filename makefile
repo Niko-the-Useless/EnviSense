@@ -1,29 +1,22 @@
-# Compiler and Linker settings
-AVR_AS = avr-as
-AVR_LD = avr-ld
 MCU = atmega32
-CFLAGS = -mmcu=$(MCU) -g   # Include debugging information (-g)
+TARGET = enviSense
+AS = avr-as
+LD = avr-ld
+OBJCOPY = avr-objcopy
 
-# File names
-ASM_SRC = enviSense.asm
-OBJ_FILE = enviSense.o
-ELF_FILE = enviSense.elf
+CFLAGS = -mmcu=$(MCU)
 
-# Default target (compiles and links)
-all: $(ELF_FILE)
+all: $(TARGET).hex
 
-# Compile .asm file to .o object file
-$(OBJ_FILE): $(ASM_SRC)
-	$(AVR_AS) $(CFLAGS) -o $(OBJ_FILE) $(ASM_SRC)
+$(TARGET).o: $(TARGET).asm
+	$(AS) $(CFLAGS) -o $@ $<
 
-# Link .o object file to .elf executable
-$(ELF_FILE): $(OBJ_FILE)
-	$(AVR_LD) -o $(ELF_FILE) $(OBJ_FILE)
+$(TARGET).elf: $(TARGET).o
+	$(LD) -o $@ $<
 
-# Clean up generated files
+$(TARGET).hex: $(TARGET).elf
+	$(OBJCOPY) -O ihex -R .eeprom $< $@
+
 clean:
-	rm -f $(OBJ_FILE) $(ELF_FILE)
-
-# Phony targets to avoid confusion with file names
-.PHONY: all clean
+	rm -f *.o *.elf *.hex
 

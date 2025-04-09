@@ -12,6 +12,9 @@
 .equ DDRD, 0x11
 .equ PIND, 0x10
 
+;stack
+.equ SPH, 0x3e
+.equ SPL, 0x3d
 ;interrupts
 .equ INT2, 5
 .equ INT0, 6
