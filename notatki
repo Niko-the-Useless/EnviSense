@@ -1,0 +1,58 @@
+1Mhz
+
+zajęte rejestry
+r16 - pin setup+misc/
+r17 - delay 
+r18 - delayMs time
+r19 - delay
+r20 r22 - sensor Data
+r21 - lcd Data
+r23 - menu
+r26, r27 - lcd word address (start and stop)
+zajęte piny
+---SPI-----
+pb4 -ss
+pb5 -mosi
+pb6 -miso
+pb7 -sck
+---i2c-----
+pc1 -sda
+pc2 -scl
+---lcd-----
+pa(wszystkie) -data
+pc7 -RS 0->ctl regs, 1->char data
+pc6 -R/W może być stałe 0
+pc5 -E
+---ctr-----
+pd2 -int0 next
+pd3 -int1 back
+---1wire----
+pd4 -data
+----EEPROM---
+0x00-0x03; 4 bytes -imie
+0x04-0x0D; 10 bytes -nazwisko
+0x0E-0x13; 6 bytes -index
+--------------------
+menu, na interruptach
+wybierz podmenu -next int0
+wejdź w podmenu -in int2
+wyjdź z podmenu -back int1
+----------------------
+UI
+0. ekran startowy -czas pracy
+
+1. dane
+	1.1 imię
+	1.2 nazwisko
+	1.3 index
+
+2.tc77 SPI 
+	2.1 t1
+
+3 dht11 1 wire
+	3.1 t2
+	3.2 Rh
+
+4. HIH8120 i2c 
+	4.1 t3
+	4.2 p 
